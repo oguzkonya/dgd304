@@ -1,0 +1,60 @@
+# ==== #
+# Misc #
+# ==== #
+git_stats
+
+# ==== #
+# Unity generated
+# ==== #
+/[Bb]uild/
+/[Ll]ibrary/
+/[Ll]ogs/
+/[Tt]emp/
+/[Oo]bj/
+/[Uu]serSettings/
+/Assets/AssetStoreTools*
+sysinfo.txt
+user.keystore
+
+# ==== #
+# OS Generated
+# ==== #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ==== #
+# Auto generated solution and project files
+# ==== #
+.consulo/
+.idea/
+.vscode
+.vs/
+*.booproj
+*.csproj
+*.pidb
+*.pidb.meta
+*.pyc
+*.pyc.meta
+*.sln
+*.sublime-*
+*.suo
+*.svd
+*.swpw
+*.tmp
+*.unityproj
+*.user
+*.userprefs
+*.userproperties
+ExportedObj/
+/Assets/Plugins/Editor/JetBrains/Unity3DRider.*
+/Assets/Plugins/Editor/JetBrains.*
+
+# === #
+# Rider EAP
+# === #
+.idea/
