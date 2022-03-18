@@ -11,7 +11,9 @@ public class GameController : MonoBehaviour
     {
         _systems = new Feature("Systems")
             .Add(new InitializeGameSystem(Contexts.sharedInstance))
+            .Add(new ResourceSystem(Contexts.sharedInstance))
             .Add(new EnemyMovementSystem(Contexts.sharedInstance))
+            .Add(new GameEventSystems(Contexts.sharedInstance))
             ;
 
         _systems.Initialize();
