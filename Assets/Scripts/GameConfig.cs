@@ -20,16 +20,15 @@ public class GameConfig : ScriptableObject
         }
     }
 
-    public float minRange;
-    public float maxRange;
+    public float range;
 
-    public float minSpeed;
-    public float maxSpeed;
+    public float speed;
 
     public float minY;
     public float maxY;
 
     public GameObject enemyPrefab;
+    public GameObject playerPrefab;
 }
 
 

@@ -18,8 +18,8 @@ public class EnemyMovementSystem : IExecuteSystem
     {
         foreach (var _enemyEntity in _enemyEntities)
         {
-            var speed = Random.Range(GameConfig.Instance.minSpeed, GameConfig.Instance.maxSpeed);
-            var range = Random.Range(GameConfig.Instance.minRange, GameConfig.Instance.maxRange);
+            var speed = GameConfig.Instance.speed;
+            var range = GameConfig.Instance.range;
             var x = Mathf.Cos(Time.time * speed) * range;
 
             _enemyEntity.ReplacePosition(
