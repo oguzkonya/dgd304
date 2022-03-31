@@ -4,50 +4,37 @@ using UnityEngine;
 using Entitas;
 
 
-public class PlayerMovementSystem : ReactiveSystem<GameEntity> 
+public class PlayerMovementSystem : ReactiveSystem<InputEntity> 
 {
 	private Contexts _contexts;
 
-	public PlayerMovementSystem(Contexts contexts) : base(contexts.game) 
+	public PlayerMovementSystem(Contexts contexts) : base(contexts.input) 
 	{
 		_contexts = contexts;
 	}
 		
-	protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context) 
+	protected override ICollector<InputEntity> GetTrigger(IContext<InputEntity> context) 
 	{
-		// specify which component you are reacting to
-		// return context.CreateCollector(MyContextMatcher.MyComponent);
-
-		// you can also specify which type of event you need to react to
-
-		// return context.CreateCollector(MyContextMatcher.MyComponent.Added()); // the default
-		// return context.CreateCollector(MyContextMatcher.MyComponent.Removed());
-		// return context.CreateCollector(MyContextMatcher.MyComponent.AddedOrRemoved());
-
-		// combine matchers with AnyOf and AllOf
-		// return context.CreateCollector(LevelMatcher.AnyOf(MyContextMatcher.Component1, MyContextMatcher.Component2));
-
-		// use multiple matchers
-		// return context.CreateCollector(LevelMatcher.MyContextMatcher, MyContextMatcher.Component2.Removed());
-
-		// or any combination of all the above
-		// return context.CreateCollector(LevelMatcher.AnyOf(MyContextMatcher.Component1, MyContextMatcher.Component2),
-		//                                LevelMatcher.Component3.Removed(),
-		//                                LevelMatcher.AllOf(MyContextMatcher.C4, MyContextMatcher.C5).Added());
-		return null;
+		return context.CreateCollector(InputMatcher.Input.Added());
 	}
 		
-	protected override bool Filter(GameEntity entity) 
+	protected override bool Filter(InputEntity entity) 
 	{
-		// check for required components
-		return true;
+		return entity.hasInput;
 	}
 
-	protected override void Execute(List<GameEntity> entities) 
+	protected override void Execute(List<InputEntity> entities) 
 	{
 		foreach (var e in entities) 
 		{
-			// do stuff to the matched entities
+			var x = _contexts.game.playerEntity.position.x;
+			var y = _contexts.game.playerEntity.position.y;
+			var z = _contexts.game.playerEntity.position.z;
+
+			x += e.input.horizontal;
+			y += e.input.vertical;
+
+			_contexts.game.playerEntity.ReplacePosition(x, y, z);
 		}
 	}
 }
