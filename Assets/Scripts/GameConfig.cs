@@ -27,8 +27,11 @@ public class GameConfig : ScriptableObject
     public float minY;
     public float maxY;
 
+    public float playerSpeed;
+
     public GameObject enemyPrefab;
     public GameObject playerPrefab;
+    public GameObject firePrefab;
 }
 
 
