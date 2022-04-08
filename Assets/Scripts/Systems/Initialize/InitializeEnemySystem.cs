@@ -23,7 +23,7 @@ public class InitializeEnemySystem : IInitializeSystem
     public void CreateEnemy(int i)
     {
         var e = _contexts.game.CreateEntity();
-        e.AddPosition(0, i, 0);
+        e.AddPosition(0, i * 1.05f, 0);
         e.isEnemy = true;
         e.AddResource(GameConfig.Instance.enemyPrefab);
     }

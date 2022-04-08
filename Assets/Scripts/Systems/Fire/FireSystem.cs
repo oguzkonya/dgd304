@@ -27,6 +27,16 @@ public class FireSystem : ReactiveSystem<InputEntity>
 	{
 		var e = _contexts.game.CreateEntity();
 		e.AddResource(GameConfig.Instance.firePrefab);
+		e.AddDirection(_contexts.game.playerEntity.direction.value);
+		
+		var position = _contexts.game.playerEntity.position;
+		e.AddPosition(position.x, position.y, position.z);
+
 		e.isFire = true;
 	}
 }
+
+
+
+
+

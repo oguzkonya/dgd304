@@ -35,7 +35,11 @@ public class PlayerMovementSystem : ReactiveSystem<InputEntity>
             y += e.input.vertical * Time.deltaTime * GameConfig.Instance.playerSpeed;
 
             _contexts.game.playerEntity.ReplacePosition(x, y, z);
-            _contexts.game.playerEntity.ReplaceDirection(e.input.horizontal > 0 ? Direction.Right : Direction.Left);
+
+            if (e.input.horizontal != 0)
+            {
+                _contexts.game.playerEntity.ReplaceDirection(e.input.horizontal > 0 ? Direction.Right : Direction.Left);
+            }
         }
     }
 }

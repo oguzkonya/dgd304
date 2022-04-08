@@ -17,10 +17,13 @@ public class GameController : MonoBehaviour
             .Add(new InitializeEnemySystem(Contexts.sharedInstance))
 
             .Add(new ResourceSystem(Contexts.sharedInstance))
-            .Add(new PlayerMovementSystem(Contexts.sharedInstance))
             .Add(new FireSystem(Contexts.sharedInstance))
-            .Add(new EnemyMovementSystem(Contexts.sharedInstance))
             
+            .Add(new PlayerMovementSystem(Contexts.sharedInstance))
+            .Add(new EnemyMovementSystem(Contexts.sharedInstance))
+            .Add(new FireMovementSystem(Contexts.sharedInstance))
+            
+            .Add(new DestroySystem(Contexts.sharedInstance))
             .Add(new GameEventSystems(Contexts.sharedInstance))
             ;
 
