@@ -19,8 +19,11 @@ public class UnityViewObject : MonoBehaviour, IPositionListener
         transform.position = new Vector3(x, y, z);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        linkedEntity.isToBeDestroyed = true;
+        // linkedEntity.isToBeDestroyed = true;
+        // end game -> player - enemy collision
+        // destroy objects -> fire - enemy collision
+        // win game -> player - treasure collision
     }
 }

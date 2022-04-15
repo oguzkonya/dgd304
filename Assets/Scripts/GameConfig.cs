@@ -20,19 +20,27 @@ public class GameConfig : ScriptableObject
         }
     }
 
+    [Header("Values")]
     public float range;
-
-    public float speed;
 
     public float minY;
     public float maxY;
 
+    public float speed;
     public float playerSpeed;
     public float fireSpeed;
 
+    public float gravity;
+    public float initialAir;
+    public float airConsumption;
+
+    public float treasurePosition;
+
+    [Header("Prefabs")]
     public GameObject enemyPrefab;
     public GameObject playerPrefab;
     public GameObject firePrefab;
+    public GameObject treasurePrefab;
 }
 
 

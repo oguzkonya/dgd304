@@ -8,19 +8,21 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Direction = 0;
-    public const int Enemy = 1;
-    public const int Fire = 2;
-    public const int Player = 3;
-    public const int Position = 4;
-    public const int PositionListener = 5;
-    public const int Resource = 6;
-    public const int ToBeDestroyed = 7;
-    public const int UnityView = 8;
+    public const int Air = 0;
+    public const int Direction = 1;
+    public const int Enemy = 2;
+    public const int Fire = 3;
+    public const int Player = 4;
+    public const int Position = 5;
+    public const int PositionListener = 6;
+    public const int Resource = 7;
+    public const int ToBeDestroyed = 8;
+    public const int UnityView = 9;
 
-    public const int TotalComponents = 9;
+    public const int TotalComponents = 10;
 
     public static readonly string[] componentNames = {
+        "Air",
         "Direction",
         "Enemy",
         "Fire",
@@ -33,6 +35,7 @@ public static class GameComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(AirComponent),
         typeof(DirectionComponent),
         typeof(EnemyComponent),
         typeof(FireComponent),

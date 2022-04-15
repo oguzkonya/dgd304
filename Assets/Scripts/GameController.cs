@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
             .Add(new InitializeGameSystem(Contexts.sharedInstance))
             .Add(new InitializePlayerSystem(Contexts.sharedInstance))
             .Add(new InitializeEnemySystem(Contexts.sharedInstance))
+            .Add(new InitializeTreasureSystem(Contexts.sharedInstance))
 
             .Add(new ResourceSystem(Contexts.sharedInstance))
             .Add(new FireSystem(Contexts.sharedInstance))
@@ -22,6 +23,8 @@ public class GameController : MonoBehaviour
             .Add(new PlayerMovementSystem(Contexts.sharedInstance))
             .Add(new EnemyMovementSystem(Contexts.sharedInstance))
             .Add(new FireMovementSystem(Contexts.sharedInstance))
+            .Add(new GravitySystem(Contexts.sharedInstance))
+            .Add(new AirSystem(Contexts.sharedInstance))
             
             .Add(new DestroySystem(Contexts.sharedInstance))
             .Add(new GameEventSystems(Contexts.sharedInstance))
