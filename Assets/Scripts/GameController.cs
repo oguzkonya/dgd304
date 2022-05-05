@@ -26,8 +26,10 @@ public class GameController : MonoBehaviour
             .Add(new GravitySystem(Contexts.sharedInstance))
             .Add(new AirSystem(Contexts.sharedInstance))
             
-            .Add(new DestroySystem(Contexts.sharedInstance))
             .Add(new GameEventSystems(Contexts.sharedInstance))
+            
+            .Add(new PlayerStateSystem(Contexts.sharedInstance))
+            .Add(new DestroySystem(Contexts.sharedInstance))
             ;
 
         _systems.Initialize();

@@ -17,5 +17,6 @@ public class InitializeTreasureSystem : IInitializeSystem
         var e = _contexts.game.CreateEntity();
         e.AddPosition(0, GameConfig.Instance.treasurePosition, 0);
         e.AddResource(GameConfig.Instance.treasurePrefab);
+        e.isTreasure = true;
     }
 }

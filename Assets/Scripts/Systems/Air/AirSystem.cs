@@ -23,7 +23,8 @@ public class AirSystem : IExecuteSystem
         }
         else
         {
-            // end game
+            var e = _contexts.game.CreateEntity();
+            e.AddPlayerState(PlayerState.RunOutOfAir);
         }
     }
 }

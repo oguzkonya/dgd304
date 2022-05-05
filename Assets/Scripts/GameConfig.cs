@@ -23,8 +23,8 @@ public class GameConfig : ScriptableObject
     [Header("Values")]
     public float range;
 
-    public float minY;
-    public float maxY;
+    public int enemySpawnMinY;
+    public int enemySpawnMaxY;
 
     public float speed;
     public float playerSpeed;
@@ -34,6 +34,7 @@ public class GameConfig : ScriptableObject
     public float initialAir;
     public float airConsumption;
 
+    public float playerPosition;
     public float treasurePosition;
 
     [Header("Prefabs")]

@@ -14,7 +14,7 @@ public class InitializeEnemySystem : IInitializeSystem
 
     public void Initialize() 
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = GameConfig.Instance.enemySpawnMinY; i < GameConfig.Instance.enemySpawnMaxY; i++)
         {
             CreateEnemy(i);
         }

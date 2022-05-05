@@ -21,8 +21,16 @@ public class UnityViewObject : MonoBehaviour, IPositionListener
 
     private void OnCollisionEnter(Collision other)
     {
+        GameEntity otherEntity = other.gameObject.GetEntityLink().entity as GameEntity;
+
+        if ((otherEntity.isPlayer && linkedEntity.isEnemy) || 
+            (otherEntity.isEnemy && linkedEntity.isPlayer))
+        {
+            var e = Contexts.sharedInstance.game.CreateEntity();
+            e.AddPlayerState(PlayerState.HitEnemy);
+        }
+
         // linkedEntity.isToBeDestroyed = true;
-        // end game -> player - enemy collision
         // destroy objects -> fire - enemy collision
         // win game -> player - treasure collision
     }
