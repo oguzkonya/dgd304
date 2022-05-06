@@ -23,15 +23,24 @@ public class UnityViewObject : MonoBehaviour, IPositionListener
     {
         GameEntity otherEntity = other.gameObject.GetEntityLink().entity as GameEntity;
 
-        if ((otherEntity.isPlayer && linkedEntity.isEnemy) || 
-            (otherEntity.isEnemy && linkedEntity.isPlayer))
+        if (linkedEntity.isPlayer)
         {
-            var e = Contexts.sharedInstance.game.CreateEntity();
-            e.AddPlayerState(PlayerState.HitEnemy);
+            if (otherEntity.isEnemy)
+            {
+                var e = Contexts.sharedInstance.game.CreateEntity();
+                e.AddPlayerState(PlayerState.HitEnemy);
+            }
+            else if (otherEntity.isTreasure)
+            {
+                var e = Contexts.sharedInstance.game.CreateEntity();
+                e.AddPlayerState(PlayerState.CollectedTreasure);
+            }
         }
 
-        // linkedEntity.isToBeDestroyed = true;
-        // destroy objects -> fire - enemy collision
-        // win game -> player - treasure collision
+        if ((linkedEntity.isFire && otherEntity.isEnemy) ||
+            (linkedEntity.isEnemy && otherEntity.isFire))
+        {
+            linkedEntity.isToBeDestroyed = true;
+        }
     }
 }

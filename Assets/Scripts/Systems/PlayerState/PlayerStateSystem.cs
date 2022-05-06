@@ -32,15 +32,24 @@ public class PlayerStateSystem : ReactiveSystem<GameEntity>
 				case PlayerState.RunOutOfAir:
 				case PlayerState.HitEnemy:
 					
-					// Destroy all entities
-					// EndGame()
+					var gameEntities = _contexts.game.GetEntities();
 
+					foreach (var g in gameEntities)
+					{
+						g.isToBeDestroyed = true;
+					}
+
+					var lost = _contexts.game.CreateEntity();
+					lost.AddGameState(GameState.Lost);
 					break;
 
 				case PlayerState.CollectedTreasure:
-
+					var won = _contexts.game.CreateEntity();
+					won.AddGameState(GameState.Won);
 					break;
 			}
+
+			e.Destroy();
 		}
 	}
 }

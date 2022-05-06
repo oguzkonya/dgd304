@@ -30,6 +30,7 @@ public class GameController : MonoBehaviour
             
             .Add(new PlayerStateSystem(Contexts.sharedInstance))
             .Add(new DestroySystem(Contexts.sharedInstance))
+            .Add(new GameStateSystem(Contexts.sharedInstance))
             ;
 
         _systems.Initialize();
@@ -44,5 +45,7 @@ public class GameController : MonoBehaviour
     private void OnDestroy() 
     {
         _systems.TearDown();
+        _systems.DeactivateReactiveSystems();
+        _systems.ClearReactiveSystems();
     }
 }

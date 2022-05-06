@@ -21,7 +21,7 @@ public class DestroySystem : ReactiveSystem<GameEntity>
 		
 	protected override bool Filter(GameEntity entity) 
 	{
-		return true;
+		return entity.hasUnityView;
 	}
 
 	protected override void Execute(List<GameEntity> entities) 
