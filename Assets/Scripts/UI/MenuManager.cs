@@ -8,7 +8,7 @@ public class MenuManager : MonoBehaviour
 {
     private Menu[] menus;
     private Menu currentMenu;
-    // popup list
+    private LinkedList<Menu> popups;
 
     public void Initialize()
     {
@@ -18,6 +18,8 @@ public class MenuManager : MonoBehaviour
         {
             menus[i].Initialize(this);
         }
+
+        popups = new LinkedList<Menu>();
     }
 
     public void Show<T>() where T : Menu
@@ -37,17 +39,63 @@ public class MenuManager : MonoBehaviour
         if (currentMenu == null)
         {
             requestedMenu.Show();
-            currentMenu = requestedMenu;
         }
         else
         {
-            // hide current menu
-            // show requested menu
+            if (requestedMenu.IsPopup)
+            {
+                requestedMenu.Show();
+                Enqueue(requestedMenu);
+            }
+            else
+            {
+                currentMenu.Hide();
+                requestedMenu.Show();
+            }
+        }
+
+        if (!requestedMenu.IsPopup)
+        {
+            currentMenu = requestedMenu;
         }
     }
+
+    public void Hide<T>() where T : Menu
+    {
+        var popupToHide = GetMenu<T>();
+
+        if (popupToHide == null)
+        {
+            return;
+        }
+
+        if (!popupToHide.IsPopup)
+        {
+            return;
+        }
+
+        popupToHide.Hide();
+        Dequeue(popupToHide);
+    }
+
+    // TODO: HideAllPopups
 
     private Menu GetMenu<T>() where T : Menu
     {
         return menus.FirstOrDefault(m => m.GetType() == typeof(T));
+    }
+
+    private void Enqueue(Menu menu)
+    {
+        Dequeue(menu);
+        popups.AddLast(menu);
+    }
+
+    private void Dequeue(Menu menu)
+    {
+        if (popups.Contains(menu))
+        {
+            popups.Remove(menu);
+        }
     }
 }

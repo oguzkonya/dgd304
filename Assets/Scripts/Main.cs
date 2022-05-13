@@ -35,5 +35,6 @@ public class Main : MonoBehaviour
     public void EndGame()
     {
         Destroy(game.gameObject);
+        menuManager.Show<EndGameMenu>();
     }
 }

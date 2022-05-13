@@ -28,6 +28,11 @@ public abstract class Menu : MonoBehaviour
 
         gameObject.SetActive(true);
 
+        if (isPopup)
+        {
+            transform.SetAsLastSibling();
+        }
+
         OnAfterShow();
     }
 
