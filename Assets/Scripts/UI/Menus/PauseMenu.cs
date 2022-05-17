@@ -9,12 +9,22 @@ public class PauseMenu : Menu
     public Button resumeButton;
     public Button settingsButton;
     public Button restartButton;
+    [SerializeField]
+    private InGameMenu _inGameMenu;
+
 
     protected override void OnInitialize()
     {
         resumeButton.onClick.AddListener(OnResumeButtonClicked);
         settingsButton.onClick.AddListener(OnSettingsButtonClicked);
         restartButton.onClick.AddListener(OnRestartButtonClicked);
+        _inGameMenu.pauseButton.onClick.AddListener(OnPauseButtonClicked);
+    }
+
+    private void OnPauseButtonClicked() 
+    {
+        Time.timeScale = 0;
+        Show();
     }
 
     private void OnRestartButtonClicked()
@@ -24,12 +34,13 @@ public class PauseMenu : Menu
 
     private void OnSettingsButtonClicked()
     {
-        menuManager.Show<SettingsMenu>();
+        //menuManager.Show<SettingsMenu>();
     }
 
     private void OnResumeButtonClicked()
     {
         Time.timeScale = 1;
-        menuManager.Hide<PauseMenu>();
+        Hide();
+        //menuManager.Hide<PauseMenu>();
     }
 }
