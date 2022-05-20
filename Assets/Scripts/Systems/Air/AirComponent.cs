@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Entitas;
+using Entitas.CodeGeneration.Attributes;
 
-[Game]
+[Game, Event(EventTarget.Any)]
 public class AirComponent : IComponent
 {
     public float value;

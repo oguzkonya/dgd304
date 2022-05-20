@@ -32,9 +32,9 @@ public class Main : MonoBehaviour
         menuManager.Show<InGameMenu>();
     }
 
-    public void EndGame()
+    public void EndGame(bool hasWon)
     {
         Destroy(game.gameObject);
-        menuManager.Show<EndGameMenu>();
+        menuManager.Show<EndGameMenu>(hasWon);
     }
 }

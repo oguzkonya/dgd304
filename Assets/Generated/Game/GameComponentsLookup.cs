@@ -9,23 +9,25 @@
 public static class GameComponentsLookup {
 
     public const int Air = 0;
-    public const int Direction = 1;
-    public const int Enemy = 2;
-    public const int Fire = 3;
-    public const int GameState = 4;
-    public const int Player = 5;
-    public const int PlayerState = 6;
-    public const int Position = 7;
-    public const int PositionListener = 8;
-    public const int Resource = 9;
-    public const int ToBeDestroyed = 10;
-    public const int Treasure = 11;
-    public const int UnityView = 12;
+    public const int AnyAirListener = 1;
+    public const int Direction = 2;
+    public const int Enemy = 3;
+    public const int Fire = 4;
+    public const int GameState = 5;
+    public const int Player = 6;
+    public const int PlayerState = 7;
+    public const int Position = 8;
+    public const int PositionListener = 9;
+    public const int Resource = 10;
+    public const int ToBeDestroyed = 11;
+    public const int Treasure = 12;
+    public const int UnityView = 13;
 
-    public const int TotalComponents = 13;
+    public const int TotalComponents = 14;
 
     public static readonly string[] componentNames = {
         "Air",
+        "AnyAirListener",
         "Direction",
         "Enemy",
         "Fire",
@@ -42,6 +44,7 @@ public static class GameComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(AirComponent),
+        typeof(AnyAirListenerComponent),
         typeof(DirectionComponent),
         typeof(EnemyComponent),
         typeof(FireComponent),

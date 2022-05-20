@@ -22,9 +22,9 @@ public abstract class Menu : MonoBehaviour
         OnInitialize();
     }
 
-    internal void Show()
+    internal void Show(object data)
     {
-        OnBeforeShow();
+        OnBeforeShow(data);
 
         gameObject.SetActive(true);
 
@@ -50,7 +50,7 @@ public abstract class Menu : MonoBehaviour
 
     }
 
-    protected virtual void OnBeforeShow()
+    protected virtual void OnBeforeShow(object data)
     {
 
     }

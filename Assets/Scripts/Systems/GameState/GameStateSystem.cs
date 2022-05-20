@@ -30,11 +30,11 @@ public class GameStateSystem : ReactiveSystem<GameEntity>
             switch (e.gameState.value)
             {
                 case GameState.Lost:
-					Main.Instance.EndGame();
+					Main.Instance.EndGame(false);
                     break;
 
                 case GameState.Won:
-					Main.Instance.EndGame();
+					Main.Instance.EndGame(true);
                     break;
             }
 

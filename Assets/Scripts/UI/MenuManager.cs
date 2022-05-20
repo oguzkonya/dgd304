@@ -22,7 +22,7 @@ public class MenuManager : MonoBehaviour
         popups = new LinkedList<Menu>();
     }
 
-    public void Show<T>() where T : Menu
+    public void Show<T>(object data = null) where T : Menu
     {
         var requestedMenu = GetMenu<T>();
 
@@ -38,19 +38,19 @@ public class MenuManager : MonoBehaviour
 
         if (currentMenu == null)
         {
-            requestedMenu.Show();
+            requestedMenu.Show(data);
         }
         else
         {
             if (requestedMenu.IsPopup)
             {
-                requestedMenu.Show();
+                requestedMenu.Show(data);
                 Enqueue(requestedMenu);
             }
             else
             {
                 currentMenu.Hide();
-                requestedMenu.Show();
+                requestedMenu.Show(data);
             }
         }
 
