@@ -25,6 +25,9 @@ public class GameController : MonoBehaviour
             .Add(new FireMovementSystem(Contexts.sharedInstance))
             .Add(new GravitySystem(Contexts.sharedInstance))
             .Add(new AirSystem(Contexts.sharedInstance))
+
+            .Add(new AnimationSystem(Contexts.sharedInstance))
+            .Add(new TransformAnimationSystem(Contexts.sharedInstance))
             
             .Add(new GameEventSystems(Contexts.sharedInstance))
             
