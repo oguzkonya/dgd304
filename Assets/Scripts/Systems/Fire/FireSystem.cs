@@ -33,6 +33,29 @@ public class FireSystem : ReactiveSystem<InputEntity>
 		e.AddPosition(position.x, position.y, position.z);
 
 		e.isFire = true;
+
+		// Trigger animation
+		// _contexts.game.playerEntity.ReplaceAnimParamTrigger("redValue");
+
+		// Bool animation
+		// bool v = false;
+
+		// if (_contexts.game.playerEntity.hasAnimParamBool)
+		// {
+		// 	v = _contexts.game.playerEntity.animParamBool.value;
+		// }
+
+		// _contexts.game.playerEntity.ReplaceAnimParamBool("tinyValue", !v);
+		
+		// Integer animation
+		int v = 0;
+
+		if (_contexts.game.playerEntity.hasAnimParamInt)
+		{
+			v = _contexts.game.playerEntity.animParamInt.value;
+		}
+
+		_contexts.game.playerEntity.ReplaceAnimParamInt("diamondValue", (v + 1) % 2);
 	}
 }
 

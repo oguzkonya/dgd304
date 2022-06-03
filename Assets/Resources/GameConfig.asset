@@ -19,7 +19,7 @@ MonoBehaviour:
   playerSpeed: 5
   fireSpeed: 5
   gravity: -0.25
-  initialAir: 10
+  initialAir: 100
   airConsumption: -1
   playerPosition: 8
   treasurePosition: -8

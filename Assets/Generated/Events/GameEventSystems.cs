@@ -10,6 +10,10 @@ public sealed class GameEventSystems : Feature {
 
     public GameEventSystems(Contexts contexts) {
         Add(new AnyAirEventSystem(contexts)); // priority: 0
+        Add(new AnimParamBoolEventSystem(contexts)); // priority: 0
+        Add(new AnimParamFloatEventSystem(contexts)); // priority: 0
+        Add(new AnimParamIntEventSystem(contexts)); // priority: 0
+        Add(new AnimParamTriggerEventSystem(contexts)); // priority: 0
         Add(new PositionEventSystem(contexts)); // priority: 0
     }
 }

@@ -9,24 +9,40 @@
 public static class GameComponentsLookup {
 
     public const int Air = 0;
-    public const int AnyAirListener = 1;
-    public const int Direction = 2;
-    public const int Enemy = 3;
-    public const int Fire = 4;
-    public const int GameState = 5;
-    public const int Player = 6;
-    public const int PlayerState = 7;
-    public const int Position = 8;
-    public const int PositionListener = 9;
-    public const int Resource = 10;
-    public const int ToBeDestroyed = 11;
-    public const int Treasure = 12;
-    public const int UnityView = 13;
+    public const int AnimParamBool = 1;
+    public const int AnimParamBoolListener = 2;
+    public const int AnimParamFloat = 3;
+    public const int AnimParamFloatListener = 4;
+    public const int AnimParamInt = 5;
+    public const int AnimParamIntListener = 6;
+    public const int AnimParamTrigger = 7;
+    public const int AnimParamTriggerListener = 8;
+    public const int AnyAirListener = 9;
+    public const int Direction = 10;
+    public const int Enemy = 11;
+    public const int Fire = 12;
+    public const int GameState = 13;
+    public const int Player = 14;
+    public const int PlayerState = 15;
+    public const int Position = 16;
+    public const int PositionListener = 17;
+    public const int Resource = 18;
+    public const int ToBeDestroyed = 19;
+    public const int Treasure = 20;
+    public const int UnityView = 21;
 
-    public const int TotalComponents = 14;
+    public const int TotalComponents = 22;
 
     public static readonly string[] componentNames = {
         "Air",
+        "AnimParamBool",
+        "AnimParamBoolListener",
+        "AnimParamFloat",
+        "AnimParamFloatListener",
+        "AnimParamInt",
+        "AnimParamIntListener",
+        "AnimParamTrigger",
+        "AnimParamTriggerListener",
         "AnyAirListener",
         "Direction",
         "Enemy",
@@ -44,6 +60,14 @@ public static class GameComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(AirComponent),
+        typeof(AnimParamBoolComponent),
+        typeof(AnimParamBoolListenerComponent),
+        typeof(AnimParamFloatComponent),
+        typeof(AnimParamFloatListenerComponent),
+        typeof(AnimParamIntComponent),
+        typeof(AnimParamIntListenerComponent),
+        typeof(AnimParamTriggerComponent),
+        typeof(AnimParamTriggerListenerComponent),
         typeof(AnyAirListenerComponent),
         typeof(DirectionComponent),
         typeof(EnemyComponent),
